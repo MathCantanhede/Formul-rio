@@ -3,73 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testando formulários</title>
+    <title>Teste de formulário</title>
     <style>
         body{
             font-family: Arial, Helvetica, sans-serif;
-            background: rgba(128, 128, 128, 0.452);
+            background: rgba(0, 0, 0, 0.26);
+        }
+        h1{
+            text-align: center;
         }
         fieldset{
+            border-radius: 10px;
             border: 1px solid black;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1>formulario</h1>
+    <h1>Formulário</h1>
     <form action="cadastro.php" method="post" autocomplete="on">
         <fieldset>
-            <legend>Dados pessoais</legend>
-            Nome: <input type="text" name="nome" id="iname" required autocomplete="name" placeholder="Nome completo">
+            <legend>Dados Pessoais</legend>
+            Nome: <input type="text" name="nome" id="inome" required autocomplete="name" placeholder="Nome Completo">
             <br>
-            Email: <input type="email" name="email" id="iemail" required placeholder="Email@.com">
+            Email: <input type="email" name="email" id="imeial" required autocomplete="email" placeholder="email@.com">
             <br>
-            Telefone: <input type="number" name="tel" id="itel" required placeholder="(xx) xxxx-xxxx">
-        </fieldset>
-        <fieldset>
-            <legend>Nascimento</legend>
-            Data de Nascimento: <input type="number" name="nasc" id="inasc" min="1500" max="2023" oninput="calcular()">
+            Data de Nascimento: <input type="number" name="nasc" id="inasc" required min="1500" max="2023" autocomplete="year" oninput="calcular()">
             <br>
-            Então sua idade é de: <output id="atual">0</output> anos
+            Idade atual de <output id="atual">0</output> anos
         </fieldset>
         <fieldset>
             <legend>Sexo</legend>
-            <input type="radio" name="sexo" id="isexo" autocomplete="sex">Masculino
-            <input type="radio" name="sexo" id="ifem" autocomplete="sex">Feminino
+            <input type="radio" name="sexo" id="imasc">Masculino
+            <input type="radio" name="sexo" id="ifem">Faminino
         </fieldset>
         <fieldset>
-            <legend>Cidade/estado</legend>
-            Cidade/estado:<select>
-                        <optgroup label="Estados do Nordeste">
-                            <option value="AL">Alagoas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="CE">Ceará</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="PB">Paraíba</option>
-                            <option value="PE">Pernambuco</option>
-                            <option value="PI">Piauí</option>
-                            <option value="RN">Rio grande do norte</option>
-                            <option value="SE">Sergipe</option>
-                        </optgroup>
-                        <optgroup label="Estados do Centro Oeste">
-                            <option value="GO">Goiás</option>
-                            <option value="MT">Mato grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                        </optgroup>
-                        <optgroup label="Estados do Sul">
-                            <option value="PR">Paraná</option>
-                            <option value="SC">Santa Catarina</option>
-                            <option value="RS">Rio Grande do Sul</option>
-                        </optgroup>
+            <legend>Cidade/Estado</legend>
+            <select>
+                 <optgroup label="Estados do Nordeste">
+                 <option value="AL">Alagoas</option>
+                 <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                 <option value="MA">Manharão</option>
+                 <option value="PB">Paraíba</option>
+                <option value="PE">Pernebuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RN">Rio Grande do Sul</option>
+                <option value="SE">Sergipe<option>
+                </optgroup>
+                <optgroup label="Estados do Centro Oeste">
+                    <option value="GO">Goiás</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso</option>
+                </optgroup>
+                <optgroup label="Estados do Sul">
+                    <option value="PR">Paraná</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                </optgroup>
+                <optgroup label="Estados do Sudeste">
+                    <option value="ES">Espírito santo</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="SP">São Paulo</option>
+                </optgroup>
             </select>
         </fieldset>
-        <input type="submit" value="enviar">
-        <input type="reset" value="zerar">
+        <script>
+            function calcular(){
+                let data= new Date().getFullYear()
+                atual.innerHTML= Number(data)-(inasc.value)
+            }
+        </script>
     </form>
-    <script>
-        function calcular(){
-            let data=new Date().getFullYear()
-            atual.innerHTML= Number(data)-(inasc.value)
-        }
-    </script>
 </body>
 </html>
