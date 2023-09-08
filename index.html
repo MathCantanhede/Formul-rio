@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando formulários</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: rgba(128, 128, 128, 0.452);
+        }
+        fieldset{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>formulario</h1>
+    <form action="cadastro.php" method="post" autocomplete="on">
+        <fieldset>
+            <legend>Dados pessoais</legend>
+            Nome: <input type="text" name="nome" id="iname" required autocomplete="name" placeholder="Nome completo">
+            <br>
+            Email: <input type="email" name="email" id="iemail" required placeholder="Email@.com">
+            <br>
+            Telefone: <input type="number" name="tel" id="itel" required placeholder="(xx) xxxx-xxxx">
+        </fieldset>
+        <fieldset>
+            <legend>Nascimento</legend>
+            Data de Nascimento: <input type="number" name="nasc" id="inasc" min="1500" max="2023" oninput="calcular()">
+            <br>
+            Então sua idade é de: <output id="atual">0</output> anos
+        </fieldset>
+        <fieldset>
+            <legend>Sexo</legend>
+            <input type="radio" name="sexo" id="isexo" autocomplete="sex">Masculino
+            <input type="radio" name="sexo" id="ifem" autocomplete="sex">Feminino
+        </fieldset>
+        <fieldset>
+            <legend>Cidade/estado</legend>
+            Cidade/estado:<select>
+                        <optgroup label="Estados do Nordeste">
+                            <option value="AL">Alagoas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RN">Rio grande do norte</option>
+                            <option value="SE">Sergipe</option>
+                        </optgroup>
+                        <optgroup label="Estados do Centro Oeste">
+                            <option value="GO">Goiás</option>
+                            <option value="MT">Mato grosso</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                        </optgroup>
+                        <optgroup label="Estados do Sul">
+                            <option value="PR">Paraná</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                        </optgroup>
+            </select>
+        </fieldset>
+        <input type="submit" value="enviar">
+        <input type="reset" value="zerar">
+    </form>
+    <script>
+        function calcular(){
+            let data=new Date().getFullYear()
+            atual.innerHTML= Number(data)-(inasc.value)
+        }
+    </script>
+</body>
+</html>
